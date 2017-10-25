@@ -1,9 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.lejeune.david.almostweekend.AlmostActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="txtDate"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="27dp" />
+
+
+    <TextView
+        android:id="@+id/lblDaysWeekend"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtDate"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="25dp"
+        android:layout_toEndOf="@+id/txtDaysWork"
+        android:layout_toRightOf="@+id/txtDaysWork"
+        android:text="Day(s)"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/lblHoursWeekend"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lblDaysWeekend"
+        android:layout_alignBottom="@+id/lblDaysWeekend"
+        android:layout_toEndOf="@+id/lblDaysWeekend"
+        android:layout_toRightOf="@+id/lblDaysWeekend"
+        android:text="Hours"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/lblMinutesWeekend"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lblHoursWeekend"
+        android:layout_alignBottom="@+id/lblHoursWeekend"
+        android:layout_toEndOf="@+id/lblHoursWeekend"
+        android:layout_toRightOf="@+id/lblHoursWeekend"
+        android:text="Minutes"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/lblSecondsWeekend"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lblMinutesWeekend"
+        android:layout_alignBottom="@+id/lblMinutesWeekend"
+        android:layout_toEndOf="@+id/lblMinutesWeekend"
+        android:layout_toRightOf="@+id/lblMinutesWeekend"
+        android:text="Seconds"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/txtDaysWeekend"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lblDaysWeekend"
+        android:layout_alignStart="@+id/lblDaysWeekend"
+        android:layout_below="@+id/lblDaysWeekend"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtHoursWeekend"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtDaysWeekend"
+        android:layout_alignBottom="@+id/txtDaysWeekend"
+        android:layout_toEndOf="@+id/lblDaysWeekend"
+        android:layout_toRightOf="@+id/lblDaysWeekend"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtMinutesWeekend"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtHoursWeekend"
+        android:layout_alignBottom="@+id/txtHoursWeekend"
+        android:layout_toEndOf="@+id/lblHoursWeekend"
+        android:layout_toRightOf="@+id/lblHoursWeekend"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtSecondsWeekend"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txtMinutesWeekend"
+        android:layout_toEndOf="@+id/txtMinutesWeekend"
+        android:layout_toRightOf="@+id/txtMinutesWeekend"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+
+</android.widget.RelativeLayout>
