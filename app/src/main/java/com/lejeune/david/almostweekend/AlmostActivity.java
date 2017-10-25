@@ -2,6 +2,7 @@ package com.lejeune.david.almostweekend;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
@@ -12,16 +13,21 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 public class AlmostActivity extends Activity {
 
 
-    private TextView txtDaysWork, txtHoursWork, txtMinutesWork, txtSecondsWork , txtDate;
+    private ProgressBar firstBar = null;
+    private int i = 0;
+
+    private TextView txtDaysWork, txtHoursWork, txtMinutesWork, txtSecondsWork , txtDate, txtPercentage;
     private TextView txtDaysWeekend, txtHoursWeekend, txtMinutesWeekend, txtSecondsWeekend;
 
     @Override
@@ -57,7 +63,13 @@ public class AlmostActivity extends Activity {
     }
 
     private void init(){
+
+        firstBar = (ProgressBar)findViewById(R.id.firstBar);
+        firstBar.setVisibility(View.VISIBLE);
+        firstBar.setMax(100);
+
         txtDate = (TextView) findViewById(R.id.txtDate);
+        txtPercentage = (TextView) findViewById(R.id.txtPercentage);
 //        txtDaysWork  = (TextView) findViewById(R.id.txtDaysWork);
 //        txtHoursWork = (TextView) findViewById(R.id.txtHoursWork);
 //        txtMinutesWork = (TextView) findViewById(R.id.txtMinutesWork);
@@ -122,14 +134,14 @@ public class AlmostActivity extends Activity {
 
 
         // calulcating time to weekend from workweek start
-        long millisLeft = weekend.getTimeInMillis() - nowC.getTimeInMillis() - 60000;
+        long millisLeftWork = weekend.getTimeInMillis() - work.getTimeInMillis() - 60000;
         // days + hours
-        long hoursLeft = millisLeft  / (60 * 60 * 1000);
+        long hoursLeft = millisLeftWork  / (60 * 60 * 1000);
         long rawQuotient = hoursLeft;
         int remainderHours = (int) rawQuotient % 24;
         int nrDays = (int) (rawQuotient - remainderHours) / 24 ;
         // minutes
-        long minutesLeft =  (millisLeft % (60 * 60 * 1000)) / (60 * 1000);
+        long minutesLeft =  (millisLeftWork % (60 * 60 * 1000)) / (60 * 1000);
 
         // outputting timeleft
 //        String timeleft = Integer.toString(nrDays) + " Days " +  Integer.toString(remainderHours) + " Hours " + Long.toString(minutesLeft) + " Minutes" ;
@@ -153,7 +165,7 @@ public class AlmostActivity extends Activity {
 
 
         // calulcating time to weekend from now
-        millisLeft = weekend.getTimeInMillis() - nowC.getTimeInMillis() - 60000;
+        long millisLeft = weekend.getTimeInMillis() - nowC.getTimeInMillis() - 60000;
         // days + hours
         hoursLeft = millisLeft  / (60 * 60 * 1000);
         rawQuotient = hoursLeft;
@@ -163,10 +175,18 @@ public class AlmostActivity extends Activity {
         minutesLeft =  (millisLeft % (60 * 60 * 1000)) / (60 * 1000);
 
         // output
+        Random rnd = new Random();
         txtDaysWeekend.setText(Integer.toString(nrDays));
+        txtDaysWeekend.setTextColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+        rnd = new Random();
         txtHoursWeekend.setText(Integer.toString(remainderHours));
+        txtHoursWeekend.setTextColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+        rnd = new Random();
         txtMinutesWeekend.setText(Long.toString(minutesLeft));
+        txtMinutesWeekend.setTextColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+        rnd = new Random();
         txtSecondsWeekend.setText(Integer.toString(secondLeftInt));
+        txtSecondsWeekend.setTextColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
 
 
 
@@ -177,11 +197,16 @@ public class AlmostActivity extends Activity {
 //
 //        System.out.println("time left since now  : " + timeleft);
 
-
-
+        long div = millisLeftWork / 100 ;
+        double div2 = (double) millisLeft / div;
+        String perc = String.format("%.2f", 100 - div2)  ;
+        txtPercentage.setText(perc + " %");
+        i = firstBar.getMax()  - ((int) div2) ;
+        firstBar.setProgress(i);
 
 
     }
+
 
 
 }
