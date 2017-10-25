@@ -74,7 +74,7 @@
         android:layout_below="@+id/lblDaysWeekend"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="32sp" />
 
     <TextView
         android:id="@+id/txtHoursWeekend"
@@ -86,7 +86,7 @@
         android:layout_toRightOf="@+id/lblDaysWeekend"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="32sp" />
 
     <TextView
         android:id="@+id/txtMinutesWeekend"
@@ -97,7 +97,7 @@
         android:layout_toRightOf="@+id/lblHoursWeekend"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="32sp" />
 
     <TextView
         android:id="@+id/txtSecondsWeekend"
@@ -108,7 +108,7 @@
         android:layout_toRightOf="@+id/txtMinutesWeekend"
         android:text="TextView"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="32sp" />
 
     <ProgressBar
         android:id="@+id/firstBar"
@@ -120,7 +120,7 @@
         android:layout_alignRight="@+id/txtSecondsWeekend"
         android:layout_alignStart="@+id/txtDaysWeekend"
         android:layout_below="@+id/txtDaysWeekend"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="89dp"
         tools:layout_editor_absoluteX="262dp"
         tools:layout_editor_absoluteY="27dp" />
 
@@ -133,7 +133,7 @@
         android:layout_alignLeft="@+id/firstBar"
         android:layout_alignRight="@+id/firstBar"
         android:layout_alignStart="@+id/firstBar"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="15dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="30sp" />
