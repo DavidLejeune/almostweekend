@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AnalogClock;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class AlmostActivity extends Activity {
-
+    AnalogClock clkSec, clkMinutes, clkHours,clkDays;
 
     private ProgressBar firstBar = null;
     private int i = 0;
@@ -63,6 +64,7 @@ public class AlmostActivity extends Activity {
     }
 
     private void init(){
+
 
         firstBar = (ProgressBar)findViewById(R.id.firstBar);
         firstBar.setVisibility(View.VISIBLE);
@@ -178,12 +180,15 @@ public class AlmostActivity extends Activity {
         Random rnd = new Random();
         txtDaysWeekend.setText(Integer.toString(nrDays));
         txtDaysWeekend.setTextColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+
         rnd = new Random();
         txtHoursWeekend.setText(Integer.toString(remainderHours));
         txtHoursWeekend.setTextColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+
         rnd = new Random();
         txtMinutesWeekend.setText(Long.toString(minutesLeft));
         txtMinutesWeekend.setTextColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
+
         rnd = new Random();
         txtSecondsWeekend.setText(Integer.toString(secondLeftInt));
         txtSecondsWeekend.setTextColor(Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256)));
